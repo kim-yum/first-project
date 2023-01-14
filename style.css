@@ -1,0 +1,466 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+*{margin: 0;padding: 0;}
+body{font: 12px/1.5  'Poiret One', cursive; color: rgb(255, 255, 255); height: 1054px;}
+ul,li{list-style: none;}
+a{text-decoration: none; color: #333;}
+img{border: none;}
+p{cursor: none;}
+
+/* 레이아웃 */
+
+header{position: fixed; top: 0; left: 0;width: 15%;height: 100%;
+background: #000;}
+nav{position: relative;margin-left: 15%;width: 85%; height: 35px;background: #000;}
+section{overflow: hidden;margin-left: 15%;width: 85%;background: rgb(255, 255, 255);}
+article{float: left;height: 260px; animation: scale 1s;}
+
+@keyframes scale{
+from{transform: scale(0);}
+to{transform: scale(1);}
+
+}
+
+
+/* 각각박스크기 설정(12개) */
+
+article:nth-of-type(1){width: 80%;height: 520px;background:#ddd;}
+article:nth-of-type(2){width: 20%;background: #ccc; }
+article:nth-of-type(3){width: 20%;background: #bbb; overflow: hidden;}/* 2행 */
+
+article:nth-of-type(4){width: 20%; background: #aaa;  overflow: hidden;}
+article:nth-of-type(5){width: 40%;background: #999;}
+article:nth-of-type(6){width: 20%;background: #888;}
+article:nth-of-type(7){width: 20%;background: #777;}/* 3행 */
+
+article:nth-of-type(8){width: 40%;background: #666;  overflow: hidden;}
+article:nth-of-type(9){width: 20%; background: #555;  overflow: hidden;}
+article:nth-of-type(10){width: 20%; background: #444;}
+article:nth-of-type(11){width: 20%; background: #3333; overflow: hidden;}/* 4행 */
+
+/* 헤더영역 */
+
+header h1{background:url(img/logo.png) no-repeat;
+text-indent: -99999px; background-position: center;
+width: 220px;height: 46px;background-size: 200px 46px;
+position: absolute; top: 70px; left: 43%; margin-left: -90px;}
+
+
+
+#gnb{position: absolute; top: 300px;right: 0px; }
+#gnb li a{display: block;padding: 7px 20px;
+    font-size: 17px;font-weight: bold;
+color: #555; line-height: 1.8; transition: all 0.5s; 
+background:transparent; text-align: right;
+}
+
+
+#gnb li a:hover,#gnb li a:active{background: rgba(255, 255, 255, 0.9);
+color: #111;}
+
+#gnb li i{margin-right: 15px;}
+
+
+.snsSat{position: absolute; bottom: 50px;
+     width: 105px;height: 47px;
+right:50%; margin-right: -45px;}
+.snsSat a{float: left;display: block;}
+
+/* 
+#gnb li i{margin-right: 15px;}
+아이콘과 글씨 사이 여백을 15px 주었음 
+*/
+
+/* nav영역 */
+
+nav a:nth-child(1){position: absolute;top: 6px; left: 10px;}
+nav a:nth-child(2){position: absolute;top: 6px; left: 150px;}
+nav a:nth-child(3){position: absolute;top: 6px; right: 90px;}
+nav a:nth-child(4){position: absolute;top: 6px; right: 10px;} 
+
+/* article 슬라이드 이미지 */
+article>div{cursor: pointer;overflow: hidden;;position: relative;width: 100%;height: 100%;}
+/* 
+article>div{}
+article 바로 및에 있는 div 만 선택(자손선택자)
+
+position: relative를 줘서 자식으로 삽입된
+absolute 요소들이 해당 div안에서만 자리잡고 
+움직이도록 설정, 넓이와 높이를 100%설정해서 
+article과 동일한 크기로 지정
+*/
+
+/* 배경이미지 삽입(1~12번박스) */
+
+article .bg{background-repeat: no-repeat;
+background-position: center center;
+background-size: cover;/*백그라운드 이미자가 꽉차게 설정*/}
+article .bg1{background-image: url(img/main.png);}
+article .bg2{background-image: url(img/pic1.jpg);}
+article .bg3{background-image: url(img/pic2.png);}
+article .bg4{background-image: url(img/pic3.png);}
+article .bg5{background-image: url(img/pic4.png);}
+article .bg6{background-image: url(img/pic5.png);}
+article .bg7{background-image: url(img/pic6.png);}
+
+article .bg .slideshow{position: relative; width: 100%;height: 100%;overflow: hidden;}
+article .bg .slideshow img{position: absolute; left: 0;}
+
+
+/* (공통) 타이틀 텍스트 */
+article .bg span{font-size: 60px; color: #fff; position: absolute;
+bottom:2px; right: 30px; transform: scale(10);transition: all 0.5s; 
+text-shadow: 1px 1px 2px #797979;
+opacity: 0;
+}
+
+
+
+/* 이미지박스위에 호버설정 */
+article:nth-of-type(3):hover .bg,article:nth-of-type(3):active .bg {
+transform: scale(1.2); opacity: 1;}
+article:hover .bg span,article:active .bg span {
+transform: scale(1); opacity: 1;}
+/* 타이틀이 10배로 커져있다가 1로 전환
+투면했다가 불투명으로 전환  */
+
+
+/* 8번째박스 타이틀 */
+article:hover .bg5 span,article:active .bg5 span{ top: 10px;}  
+
+/* 텍스트 박스 */
+
+article .txt{color: #666; background: #fff;
+padding: 40px 30px; box-sizing: border-box;}
+article .txt i{font-size: 200px; color: #fff;
+position: absolute; bottom:0; right:-200px;
+transition: all 0.5s; opacity: 0;
+}
+
+article:nth-child(3) .txt i{bottom: -20px; right: 5px;}
+article:nth-child(6) .txt i{right: 0px; bottom: 0px;}
+article:nth-child(8) .txt i{bottom: -50px; right: -15px;}
+article:nth-child(11) .txt i{font-size: 150px; right: 0px; bottom: -20px;}
+
+article:nth-child(3) .txt,article:nth-child(11) .txt{background: #d7ebec;}
+
+article .txt p strong{font-weight: normal; font-size: 30px; line-height: 1.6;
+color: #444; margin-bottom: 20px; }
+article .txt p em{display: block; }
+
+/* 모든 텍스트박스 호버 효과 */
+
+article:hover .txt{ background: #222; color: #fff;}
+article:hover .txt i{right: 0px; opacity: 0.8;}
+article:hover:nth-child(6) .txt i{}
+article:hover .txt p strong{color: #fff;}
+ 
+
+/* ------- 네비게이션 메뉴 모바일 버전 -------------*/
+
+#toggle1:checked ~ #gnbMo{display: block;}
+/* toggle1(토글메뉴 버튼)이 체크가 된 상태라면 같은 계층에 있는
+#gnbMo가 보이게 해라
+~:같은 계층에 있는
+*/
+#toggle2:checked ~ #gnbMo{display: none;}
+/* toffle2(close버튼)이 체크가 된 상태라면 #gnbMo를 안보이게 해라 */
+.none{display: none;}
+.toggle_bth{display: block;background: url(./img/btnMenu.png) no-repeat;
+width: 77px;height: 70px; z-index: 50;position: absolute;
+top: 10px;left: 0; cursor: pointer; display: none;
+}
+
+/* 메뉴를 클릭했을 때 나오는 메뉴화면 */
+#gnbMo{position: fixed; top: 0; left: 0;background: rgba(0, 0, 0, 0.8);
+width: 80%;height: 100%;z-index: 100; display: none;}
+
+#gnbMo label{background-image:url(./img/close_btn.png) ;
+background-repeat: no-repeat;
+background-size: 30px 30px;background-position: center center;
+width: 50px;height: 50px;display: block;right: 0;top: 7px;
+position: absolute;text-indent: -99999px;cursor: pointer;
+}
+
+
+
+#gnbMo ul{width: 200px;height: 300px;
+    position: absolute; top: 50%;left: 50%;margin-top: -150px;
+        margin-left: -100px;}
+#gnbMo li{margin-bottom: 10px;}
+#gnbMo ul a{  display: block; text-align: center;
+     height: 50px;line-height: 50px;
+font-size: 18px; font-size: 18px; color: #ccc;
+border-bottom: 1px solid #fff; opacity: 0.8;font-weight: bold; transition: all 0.5s;}  
+#gnbMo ul a:hover,#gnbMo ul a:active{ opacity: 1; font-size: 20px; color: rgb(255, 255, 255);border-bottom: 3px solid #fff;
+transform: scale(1.2);}
+#gnbMo ul a i{margin-right: 8px;}
+
+
+
+
+
+
+
+
+/* 
+#gnbMo ul{position: absolute;top: 250px; left: 50%;width: 250px;margin-left: -125px; }
+#gnbMo ul a{ font-size: 20px; font-weight: bold; color:rgb(255, 255, 255, 0.8); 
+         display: block; text-align: center;
+        }  
+#gnbMo ul a:hover,#gnbMo ul a:active{  transform: scale(1.1) 
+
+}
+#gnbMo ul a i{margin-bottom: 50px;margin-right: 15px;}
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+ /*
+ min사용할때는 width가 작은순서대로 작성해야 함,
+ max사용할대는 width가 큰 순서대로 작성
+ sxreen:px,태블릿,스마트폰 단말기
+ */
+
+@media screen and (min-width:1280px) and (max-width:1599px){ 
+    header{position: relative; width: 100%; height: 80px;}
+    nav{margin-left: 0; width: 100%;}
+    section{margin-left: 0; width: 100%;}
+    /* header : 세로형에서 가로형으로 배치가 바뀜  */
+    
+
+
+    
+header h1{background:url(./img/logo.png) no-repeat;
+    width: 220px;height: 46px;background-size: cover;
+    top: 10px; left: 20px; margin-left: 0; }
+    
+    #gnb{ top: 20px;right: 200px;}
+    #gnb li{float: left;}
+
+    .snsSat{ bottom: 20px; right:30px; margin-right: 0px;}
+
+}
+
+@media screen and (min-width:1024px) and (max-width:1279px){
+    header{position: relative; width: 100%; height: 80px;}
+    nav{margin-left: 0; width: 100%;}
+    section{margin-left: 0; width: 100%;}
+    /* header : 세로형에서 가로형으로 배치가 바뀜  */
+    
+
+
+    
+    header h1{background:url(./img/logo.png) no-repeat;
+        width: 220px;height: 46px;background-size: cover;
+    top: 10px; left: 20px; margin-left: 0; }
+    
+    #gnb{ top: 20px;right: 30px;}
+    #gnb li{float: left;}
+
+    .snsSat{ display: none; }
+
+    
+/* 각각박스크기 설정(12개) */
+    article:nth-of-type(1){width: 75%;}
+    article:nth-of-type(2){width: 25%;}
+    article:nth-of-type(3){width: 25%;}
+
+    article:nth-of-type(4){width: 25%;}
+    article:nth-of-type(5){width: 25%;}
+    article:nth-of-type(6){width: 50%;}/* 2행 */
+
+
+    article:nth-of-type(7){width: 50%;}
+    article:nth-of-type(8){width: 25%;}
+    article:nth-of-type(9){width: 25%; }/* 3행 */
+
+    article:nth-of-type(10){width: 50%;}
+    article:nth-of-type(11){width: 25%; }
+    article:nth-of-type(12){width: 25%; }/* 4행 */
+
+
+}
+
+@media screen and (min-width:780px) and (max-width:1023px){
+                /*해당화면은 태블릿 같은 모바일기기이므로 화면 스크롤이 너무 길어지는 것을 방지하기 위해 몇몇
+                중요도 덜한것은 숨김처리  */
+
+    header{position: relative; width: 100%; height: 80px;}
+    nav{margin-left: 0; width: 100%;}
+    section{margin-left: 0; width: 100%;}
+    /* header : 세로형에서 가로형으로 배치가 바뀜  */
+    
+
+
+    
+    header h1{background:url(./img/logo.png) no-repeat;
+        width: 220px;height: 46px;background-size: cover;
+    top: 10px; left: 20px; margin-left: 0; }
+    
+    #gnb{ top: 20px;right: 30px;}
+    #gnb li{float: left;}
+    #gnb li a{padding: 8px 8px }
+    #gnb li i{margin-right: 6px;}
+
+
+    .snsSat{ display: none; }
+
+    
+/* 각각박스크기 설정(12개) */
+    article:nth-of-type(1){width: 100%; height: 400px;} /*1행*/
+
+
+    article:nth-of-type(2){width: 66.6666%;}/* 2행 */
+    article:nth-of-type(3){display: none;}
+    article:nth-of-type(4){width: 33.3333%;}
+
+    article:nth-of-type(5){width: 33.3333%;}/* 3행 */
+    article:nth-of-type(6){width: 66.6666%;}
+
+
+    article:nth-of-type(7){display: none;}
+    article:nth-of-type(8){width: 33.3333%;}
+    article:nth-of-type(9){width: 33.3333%; }/* 4행 */
+    article:nth-of-type(10){display: none;}
+    article:nth-of-type(11){width: 33.3333%; }
+    article:nth-of-type(12){display: none; }
+
+}
+
+@media screen and (min-width:640px) and (max-width:779px){
+                /*해당화면은 태블릿 같은 모바일기기이므로 화면 스크롤이 너무 길어지는 것을 방지하기 위해 몇몇
+                중요도 덜한것은 숨김처리  */
+
+                header{position: relative; width: 100%; height: 80px;}
+                nav{margin-left: 0; width: 100%;}
+                section{margin-left: 0; width: 100%;}
+                /* header : 세로형에서 가로형으로 배치가 바뀜  */
+                
+            
+            
+                
+                header h1{background:url(./img/logo.png) no-repeat;
+                    width: 220px;height: 46px;background-size: cover;
+                top: 10px; left: 20px; margin-left: 0; }
+                
+                #gnb{ top: 20px;right: 30px;}
+                #gnb li{float: left;}
+                #gnb li a{padding: 8px 8px }
+                #gnb li i{margin-right: 6px;}
+            
+            
+                .snsSat{ display: none; }
+            
+                
+            /* 각각박스크기 설정(12개) */
+                article:nth-of-type(1){width: 100%; height: 400px;} /*1행*/
+            
+            
+                article:nth-of-type(2){width: 100%; }/* 2행 */
+                article:nth-of-type(3){display: none; }
+                article:nth-of-type(4){display: none;}
+            
+                article:nth-of-type(5){width: 50%;}/* 3행 */
+                article:nth-of-type(6){width: 50%;}
+            
+            
+                article:nth-of-type(7){display: none;}
+                article:nth-of-type(8){width: 50%;}
+                article:nth-of-type(9){width:50%; }/* 4행 */
+            
+                article:nth-of-type(10){display: none;}
+                article:nth-of-type(11){width: 50%; }
+                article:nth-of-type(12){width: 50%; }/* 5행 */
+            
+            }
+            
+@media screen and (min-width:480px) and (max-width:639px){
+                /*해당화면은 태블릿 같은 모바일기기이므로 화면 스크롤이 너무 길어지는 것을 방지하기 위해 몇몇
+                중요도 덜한것은 숨김처리  */
+
+                header{position: relative; width: 100%; height: 70px;}
+                nav{display: none;}
+                section{margin-left: 0; width: 100%;z-index: 5;}
+                /* header : 세로형에서 가로형으로 배치가 바뀜  */
+                
+                header h1{background:url(img/logo.png) no-repeat;
+                    width: 220px;height: 46px;background-size: 100%;
+                    top: 10px; left: 50%; margin-left: -110px}
+                article{height: 150px;}
+
+                #gnb{ display: none;width: 100%;top: 85px; left: 50%; margin-left: -240px;}
+                #gnb li{float:left;width: 25%;}
+                #gnb li a{padding: 8px 8px; text-align: center;}
+                .snsSat{ display: none; }
+
+                /* 햄버거 버튼 */
+                .toggle_bth{display: block;}
+            
+                
+            /* 각각박스크기 설정(12개) */
+                article:nth-of-type(1){width: 100%; height: 400px;} /*1행*/
+            
+            
+                article:nth-of-type(2){width: 100%; }/* 2행 */
+                article:nth-of-type(3){display: none; }
+                article:nth-of-type(4){display: none;}
+            
+                article:nth-of-type(5){width: 50%;}/* 3행 */
+                article:nth-of-type(6){width: 50%;}
+            
+            
+                article:nth-of-type(7){display: none;}
+                article:nth-of-type(8){width: 50%;}
+                article:nth-of-type(9){width:50%; }/* 4행 */
+            
+                article:nth-of-type(10){display: none;}
+                article:nth-of-type(11){width: 50%; }
+                article:nth-of-type(12){width: 50%; }/* 5행 */
+            
+            }
+
+@media screen and (max-width:479px){
+                /*해당화면은 태블릿 같은 모바일기기이므로 화면 스크롤이 너무 길어지는 것을 방지하기 위해 몇몇
+                중요도 덜한것은 숨김처리  */
+
+                header{position: fixed; width: 100%; height: 130px;background: transparent; z-index: 10;}
+                nav{display: none;}
+                section{margin-left: 0; width: 100%;z-index: 5;}
+                /* 로고를 맨위에, ,article이 아래에 있게 하기 위해서 z-index 낮은 숫자를 사용  */
+
+              
+                article{display: none;}
+                article:nth-of-type(1){display: block;position: fixed;width: 100%;height: 100%;}
+                article .bg .slideshow img{height: 100%;}
+                /*작은화면이 이미지를 꽉차게  */
+                article:nth-of-type(1) span{display: none;}
+
+                /* header  */
+                header h1{background:url(./img/logo2.png) no-repeat;
+                    width: 220px;height: 46px;background-size:cover;
+                    top: 100px; left: 50%; margin-left: -110px}
+                #gnb{ width: 250px ; bottom:120px;left: 50%; margin-left: -125px;}
+
+                #gnb li{float:none;width: 100%;margin-bottom: 10%; }
+                #gnb li a{ padding-left: 50px; 
+                    background: rgba(0, 0, 0, 0.5); color: #fff; 
+                    border-radius: 5px; text-align: center; padding: 10px 0;
+                }
+                .snsSat{ display: none; }
+
+                #gnb li a:hover {background:rgba(255, 255, 255, 0.5); color: #111;  cursor: pointer;
+                    transform: scale(1.1);
+                 }
+        
+}
